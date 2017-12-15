@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="transparent">
+<title>{{ page_title }}</title>
+
+{# SÓ POR ENQUANTO #}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+{# SÓ POR ENQUANTO #}
+
+<link rel="stylesheet" href="css/main.css">
+<link rel="icon" href="https://i.stack.imgur.com/Mmww2.png" />
+
+{% block scripts %}{% endblock %}
+
+{# Imports #}
+{% from "components/_button.njk" import button %}
+
+<body>
+  {% include "partials/_header.njk" %}
+
+  {% block main %}{% endblock %}
+
+  {% include "partials/_footer.njk" %}
+
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

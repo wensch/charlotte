@@ -1,0 +1,80 @@
+.filter
+	.title
+		set-font($w-regular, $size-regular, $font-mont)
+		color $black
+		margin-bottom 40px
+		margin-top 0
+
+	span
+		set-font($w-regular, $size-little, $font-heb)
+		display block
+
+	.filter-price
+		display flex
+		flex-flow wrap
+		justify-content space-between
+		margin-bottom 30px
+
+		input
+			margin 10px 0
+			width 100%
+
+		span
+			set-font($w-regular, $size-short, $font-heb)
+
+			&.max
+				text-align right
+
+		strong
+			set-font($w-bold, $size-regular, $font-heb)
+			display block
+			color $highlight
+			opacity 0.45
+
+	.filter-stars
+		border-top solid 1px $border
+		padding-top 15px
+
+		li
+			cursor pointer
+			display inline-flex
+			font-size 0
+			margin-right 3px
+			margin-top 15px
+
+			&:last-child
+				margin-right 0
+
+			&:before
+				set-font($w-bold, $size-regular, $font-icon)
+				color $highlight
+				content '\e907'
+
+			&.-active
+				&:before
+					set-font($w-bold, $size-regular, $font-icon)
+					color $highlight
+					content '\e906'
+
+	@media screen and (max-width: $tablet)
+		margin-bottom 70px
+
+	@media screen and (max-width: $mobile)
+		position absolute
+		top 0
+		left 50%
+		transform translateX(-50%)
+		width 100%
+
+		.filter-price,
+		.filter-stars
+			display inline-flex
+			height 100%
+			width 40%
+
+		.filter-stars
+			margin-left 30px
+			border-top 0
+			border-left solid 1px $border
+			padding-top 0
+			padding-left 20px

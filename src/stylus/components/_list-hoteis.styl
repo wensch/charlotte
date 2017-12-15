@@ -1,0 +1,60 @@
+.title-list
+	set-font($w-regular, $size-regular, $font-mont)
+	color $black
+	text-align center
+	margin-bottom 70px
+	margin-top 0
+	padding 0 20px
+	width 100%
+
+	span
+		set-font($w-regular, $size-regular, $font-mont)
+		color $black
+
+.list-hotels
+	box-sizing border-box
+	display flex
+	flex-flow wrap
+	justify-content space-between
+	margin 0 auto
+	max-width 1280px
+	opacity 0
+	padding 0 20px
+	position absolute
+	top 0
+	transition-delay 0.3s
+	transition-duration 0.3s
+	transition-property opacity, visibility
+	visibility hidden
+
+	&.-active
+		opacity 1
+		position static
+		transition-delay 0.3s
+		transition-duration 0.3s
+		transition-property opacity, visibility
+		visibility visible
+
+		.hotel
+			.info-hotel,
+			.price-hotel
+				visibility visible
+
+	.col-filter
+		max-width 291px
+
+	.col-hotels
+		max-width 897px
+
+	@media screen and (max-width: $tablet)
+		flex-flow wrap
+		justify-content center
+
+		&.-active
+			position relative
+
+	@media screen and (max-width: $mobile)
+		padding-top 200px
+
+	@media screen and (max-width: $mobile-medium)
+		padding 0

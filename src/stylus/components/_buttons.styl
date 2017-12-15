@@ -1,0 +1,36 @@
+.btn-default
+	set-font($w-bold, $size-tiny, $font-heb)
+	cursor pointer
+	background-color transparent
+	border solid 2px
+	border-radius 100px
+	padding 14px 30px
+	outline 0
+	transition background-color 0.2s linear
+
+	&.-highlight
+		color $highlight
+		border-color $highlight
+
+		&.-active,
+		&:hover
+			background-color $highlight
+			color $white
+
+	&.-price
+		color $price
+		border-color $price
+
+		&:hover
+			background-color $price
+			color $white
+
+.btn-back
+	set-font($w-regular, $size-little, $font-heb)
+	color $text
+
+	&:before
+		set-font($w-regular, $size-little, $font-icon)
+		content '\e902'
+		color $highlight
+		margin-right 10px

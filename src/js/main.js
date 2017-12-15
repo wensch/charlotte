@@ -1,0 +1,5 @@
+import './components/list-hotels.js'
+import './components/calendar.js'
+import './components/rating.js'
+import './components/graphic.js'
+import './components/price-history.js'

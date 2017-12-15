@@ -1,0 +1,26 @@
+[[#hotels]]
+<section class="hotel" data-component="price-history">
+	<img src='[[image]]' alt="" class="img-hotel">
+	<div class="info-hotel">
+		<div class="avaliation-hotel" data-component="rating" data-rating="[[rate]]">
+			<div class="star"></div>
+		</div>
+		<h2 class="title">[[name]]</h2>
+		<p>[[description]]</p>
+		{{button('Book now', class='btn-default -highlight')}}
+		{{button('Price history', class='btn-default -price')}}
+	</div>
+	<div class="price-hotel">
+		<span>Total <strong class="price">$[[price]]</strong></span>
+	</div>
+	<div class="history-hotel" data-component="graphicss">
+		<h2 class="title">Price history for 2017</h2>
+		{{button('Back to description', class='btn-back', format='href')}}
+		<ul class="grafico">
+			[[#price_history]]
+				<li><span data-value="[[value]]"></span> [[month]]</li>
+			[[/price_history]]
+		</ul>
+	</div>
+</section>
+[[/hotels]]

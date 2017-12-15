@@ -1,0 +1,71 @@
+.history-hotel
+	display flex
+	flex-flow wrap
+	justify-content space-between
+	opacity 0
+	visibility hidden
+	position absolute
+	transition-property opacity, visibility
+	transition-duration 0.3s
+
+	.grafico
+		align-items flex-end
+		display flex
+		justify-content space-between
+		padding-left 0
+		position relative
+		width 100%
+
+		&:after
+			content ''
+			border-bottom solid 2px $border
+			position absolute
+			width 100%
+			bottom 26px
+
+		li
+			set-font($w-regular, $size-little, $font-heb)
+			color $text
+			list-style none
+			width 27px
+			position relative
+
+			&:hover,
+			&.-active
+				span
+					opacity 1
+
+					&:before
+						set-font($w-regular, $size-tiny, $font-heb)
+						background-color $price_history
+						border-radius 3px
+						color $white
+						content attr(data-value)
+						letter-spacing 1.7px
+						padding 2px 10px
+						position relative
+						top -32px
+						left -12px
+
+					&:after
+						display inline-block
+						border-left 5px solid transparent
+						border-right 5px solid transparent
+						border-top 5px solid #484848
+						content ''
+						left 8px
+						position relative
+						top -41px
+
+		span
+			background-color $highlight
+			background-image linear-gradient(0deg, #EE6F48 0%, #F98100 100%)
+			border-radius 3px 3px 0 0
+			display block
+			height 150px
+			margin-bottom 10px
+			opacity 0.6
+
+	@media screen and (max-width: $mobile-medium)
+		.btn-back
+			margin-bottom 30px

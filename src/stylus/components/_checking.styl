@@ -1,0 +1,67 @@
+.checking
+	box-sizing border-box
+	background-color $white
+	box-shadow 0 -40px 46px 0 rgba(0,0,0,0.33)
+	border-radius 7px
+	padding 60px 100px 0
+	margin -150px auto 80px
+	max-width 840px
+
+	.title
+		set-font($w-regular, $size-regular, $font-mont)
+		color $black
+		display block
+		margin-bottom 70px
+		margin-top 0
+		text-align center
+
+	.check-days
+		display flex
+		justify-content space-between
+
+	.check
+
+		strong
+			set-font($w-regular, $size-regular, $font-heb)
+			color $title
+			display block
+			letter-spacing 2.5px
+			text-transform uppercase
+
+		span
+			set-font($w-regular, $size-small, $font-heb)
+			color $text
+			display block
+			letter-spacing 1.36px
+			margin-bottom 40px
+
+		.btn-default
+			padding 14px 45px
+
+	@media screen and (max-width: $tablet-medium)
+		max-width 680px
+		padding 60px
+		padding-bottom 0
+
+	@media screen and (max-width: $mobile)
+		max-width 400px
+		padding 40px 30px
+		padding-bottom 0
+
+		.title
+			margin-bottom 40px
+
+		.check-days
+			flex-flow wrap
+			justify-content center
+			flex-direction column-reverse
+
+		.check
+			margin-top 40px
+			text-align center
+
+			strong
+				font-size $size-small
+
+			span
+				font-size $size-normal

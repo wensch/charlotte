@@ -1,0 +1,123 @@
+@import url('https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css');
+
+.flatpickr-input
+	display none
+
+.flatpickr-calendar
+	set-font($w-regular, $size-tiny, $font-heb)
+	border-top solid 2px $border
+	border-radius 0
+	box-shadow none
+	padding-top 15px
+
+	&:before,
+	&:after
+		display none
+
+	.flatpickr-month
+		color $title
+		height 17px
+		margin-bottom 20px
+
+	.flatpickr-current-month
+		padding 0
+
+		.cur-month
+			height auto
+			font-size $size-normal
+			font-weight $w-regular
+			margin-left 0
+
+		.cur-year
+			font-size $size-normal
+			font-weight $w-regular
+			padding-left 13px
+
+		.numInputWrapper
+			padding-left 5px
+
+			&:before
+				content "/"
+				font-size $size-normal
+				position absolute
+				top 4px
+
+	.flatpickr-prev-month,
+	.flatpickr-next-month
+		height 15px
+		padding-top 0
+		padding-bottom 5px
+		top 4px
+
+	.flatpickr-weekdays
+		height 12px
+		padding-bottom 10px
+		border-bottom solid 2px $border
+		margin-bottom 8px
+
+	.flatpickr-weekday
+		font-size $size-tiny
+		font-weight $w-bold
+		color $text
+
+	.flatpickr-day
+		margin-bottom 10px
+
+		&.today
+			border 0
+
+		&.startRange,
+		&.selected,
+		&.inRange,
+		&:hover
+			color $white
+			background $price
+			border-color $price
+
+		&.inRange
+			box-shadow -5px 0 0 $price, 5px 0 0 $price
+
+		&.startRange + .endRange
+			box-shadow -10px 0 0 $price
+
+			&:before
+				left -6px
+
+		&.endRange
+			position relative
+			border-radius 50%
+			background-color $white
+			color $price
+			box-shadow -5px 0 0 #79bd1a, 0 0 0 #79bd1a
+
+			&:before
+				background-color $price
+				content ""
+				height 105%
+				left -1px
+				position absolute
+				top -1px
+				width 50%
+				z-index -1
+
+			// &.startRange,
+			// &.inRange
+			// 	background-color $price
+			// 	color $white
+			// 	box-shadow -5px 0 0 #79bd1a, 5px 0 0 #79bd1a
+      //
+			// 	&:before
+			// 		display none
+
+@media screen and (max-width: $mobile)
+	.flatpickr-calendar.inline
+		margin 0 auto
+
+@media screen and (max-width: $mobile-medium)
+	.flatpickr-calendar.inline,
+	.flatpickr-days,
+	.flatpickr-rContainer,
+	.dayContainer
+		max-width 100%
+		min-width 100%
+		width 100%

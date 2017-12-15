@@ -1,0 +1,22 @@
+header
+	padding 30px 80px 0
+
+	.nav-menu
+		a
+			set-font($w-regular, $size-tiny, $font-heb)
+			color $white
+			margin-right 40px
+
+			&:last-child
+				margin-right 0
+
+	@media screen and (max-width: $mobile)
+		padding 30px
+		padding-bottom 0
+
+	@media screen and (max-width: $mobile-medium)
+		padding 30px 20px 0
+
+		.nav-menu
+			a
+				margin-right 10px

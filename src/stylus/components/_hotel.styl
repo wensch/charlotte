@@ -1,0 +1,148 @@
+.hotel
+	background-color $white
+	border-radius 5px
+	box-shadow 0 4px 17px 0 rgba(0,0,0,0.22)
+	box-sizing border-box
+	display flex
+	margin-bottom 30px
+	padding 50px
+
+	&.-history
+		.info-hotel,
+		.price-hotel
+			opacity 0
+			visibility hidden
+			position absolute
+			transition-property opacity, visibility
+			transition-duration 0.3s
+
+		.history-hotel
+			opacity 1
+			visibility visible
+			position static
+			transition-property opacity, visibility
+			transition-duration 0.3s
+
+	.info-hotel,
+	.price-hotel
+		opacity 1
+		position static
+		transition-property opacity, visibility
+		transition-duration 0.3s
+
+	.img-hotel
+		border-radius 4px
+		margin-left -110px
+		margin-right 40px
+
+	.info-hotel
+		margin-right 20px
+		max-width 403px
+
+	.avaliation-hotel
+		margin-bottom 20px
+		margin-top 10px
+
+		.star
+			display inline-block
+			font-size 0
+			margin-right 4px
+
+			&:before
+				set-font($w-bold, $size-little, $font-icon)
+				content "\e906"
+				color $feature
+
+			&:last-child
+				margin-right 0
+
+	.title
+		set-font($w-bold, $size-normal, $font-heb)
+		color $highlight
+		letter-spacing 1.82px
+		line-height 1.7em
+		margin-bottom 20px
+		margin-top 0
+		text-transform uppercase
+
+	p
+		margin-bottom 30px
+
+	.btn-default
+		padding 8px 30px
+
+		&.-price
+			margin-left 20px
+
+	.price-hotel
+		border-left solid 1px $text
+		padding-left 36px
+		display flex
+		align-items center
+		justify-content center
+
+		strong
+			set-font($w-bold, $size-medium, $font-mont)
+			color $price
+			display block
+
+		span
+			text-align right
+
+	@media screen and (max-width: $tablet)
+		padding 40px 30px
+		margin 0 20px 30px
+
+		.img-hotel
+			margin-left 0
+
+	@media screen and (max-width: $tablet-medium)
+		padding 40px 25px
+		margin 0 15px
+
+		.img-hotel
+			margin-right 30px
+
+		.btn-default
+			padding 8px 20px
+
+			&.-price
+				margin-left 10px
+
+		.price-hotel
+			padding-left 20px
+
+	@media screen and (max-width: $mobile)
+		flex-flow wrap
+		justify-content center
+
+		.img-hotel
+			margin-bottom 30px
+			margin-right 0
+
+		.info-hotel
+			margin-right 0
+			margin-bottom 30px
+			max-width 100%
+
+		.price-hotel
+			border-left 0
+			border-top solid 1px $text
+			padding-left 0
+			padding-top 20px
+			width 100%
+
+			span
+				display block
+
+	@media screen and (max-width: $mobile-medium)
+		margin 0
+		margin-bottom 30px
+
+		.btn-default
+			font-size $size-normal
+			// padding 10px 13px
+
+		.history-hotel
+			.title
+				margin-bottom 5px

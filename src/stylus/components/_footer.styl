@@ -1,0 +1,32 @@
+footer
+	box-shadow 0 2px 20px 0 rgba(0,0,0,0.13)
+	margin-top 150px
+	padding 40px 10px
+	text-align center
+
+	.copyright
+		p
+			set-font($w-regular, $size-little, $font-heb)
+
+.list-social
+	display flex
+	justify-content space-between
+	margin 0 auto 30px
+	max-width 147px
+
+	li
+		font-size 0
+
+		a
+			&:before
+				set-font($w-bold, $size-large, $font-icon)
+				color $highlight
+
+			&.icon-facebook:before
+				content "\e904"
+
+			&.icon-twitter:before
+				content "\e908"
+
+			&.icon-instagram:before
+				content "\e905"
