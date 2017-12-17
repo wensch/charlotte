@@ -27,9 +27,9 @@ const calendar = (comp, node) => {
 	}
 
 	function checking() {
-		let dateIn = node.querySelector('.check .in span')
-		let dateOut = node.querySelector('.check .out span')
-		let btnSearchHotels = node.querySelector('.search-hotels')
+		let dateIn = document.querySelector('.check .in span')
+		let dateOut = document.querySelector('.check .out span')
+		let btnSearchHotels = document.querySelector('.search-hotels')
 		let value = node.querySelector('.form-control').value
 		let res = value.split(" to ")
 

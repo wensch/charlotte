@@ -7,16 +7,150 @@
 	<script type="text/javascript"> hljs.initHighlightingOnLoad(); </script>
 {% endblock %}
 
-
 {% block main %}
-	<h1>Guideline</h1>
-	{{button('Arroz', class='btn-default')}}
-	{{button('Arroz', class='btn-default', format='href', link='/arroz.html')}}
 
-<pre><code class="html">
-{% filter escape %}
-{{ button('Arroz')}}
-{% endfilter %}
-</code></pre>
+<div class="guideline">
+
+	<h1>Guideline</h1>
+
+	<div class="guide-block">
+		<h2>#Buttons</h2>
+		{{button('Text button', class='btn-default -price')}}
+		{{button('Text button', class='btn-default -highlight', format='href', link='#')}}
+
+		<div class="guide-example">
+		<pre><code class="html">
+		{% filter escape %}
+		{{ button('Text button')}}
+		{% endfilter %}
+		</code></pre>
+		</div>
+	</div>
+	<div class="guide-block">
+		<h2>#Header</h2>
+		{% include "partials/_header.njk" %}
+
+		<div class="guide-example">
+		<pre><code class="html">
+		{% filter escape %}
+		{% include "partials/_header.njk" %}
+		{% endfilter %}
+		</code></pre>
+		</div>
+	</div>
+	<div class="guide-block">
+		<h2>#Banner</h2>
+		{% include "components/_banner.njk" %}
+
+		<div class="guide-example">
+		<pre><code class="html">
+		{% filter escape %}
+		{% include "components/_banner.njk" %}
+		{% endfilter %}
+		</code></pre>
+		</div>
+	</div>
+	<div class="guide-block">
+		<h2>#Calendar</h2>
+		{% include "components/_calendar.njk" %}
+
+		<div class="guide-example">
+		<pre><code class="html">
+		{% filter escape %}
+		{% include "components/_calendar.njk" %}
+		{% endfilter %}
+		</code></pre>
+		</div>
+	</div>
+	<div class="guide-block">
+		<h2>#Filter - Price e Stars</h2>
+		<span class="explicacao">*o Input Range, so é instanciado após o carregamento dos hoteis</span>
+		{% include "components/_filter.njk" %}
+
+		<div class="guide-example">
+		<pre><code class="html">
+		{% filter escape %}
+		{% include "components/_filter.njk" %}
+		{% endfilter %}
+		</code></pre>
+		</div>
+	</div>
+	<div class="guide-block">
+		<h2>#Box hotel</h2>
+		<span class="explicacao">*valores vindo do servidor via AJAX</span>
+		<section class="hotel" data-component="price-history">
+			<img src="https://www.raphaelfabeni.com.br/rv/test-resources/hotels/super-8.jpg" alt="" class="img-hotel">
+			<div class="info-hotel">
+				<div class="avaliation-hotel" data-component="rating" data-rating="3"><div class="star"></div><div class="star"></div><div class="star"></div></div>
+				<h2 class="title">Super 8 Speedway/University</h2>
+				<p>Just off Interstate 85, this hotel features free Wi-Fi and a daily continental breakfast with hot waffles. The Charlotte Motor Speedway is a 15 minute drive from the hotel.</p>
+					<button type="text" class="btn-default -highlight" id="">Book now</button>
+					<button type="text" class="btn-default -price" id="">Price history</button>
+			</div>
+			<div class="price-hotel">
+				<span>Total <strong class="price">$180</strong></span>
+			</div>
+			<div class="history-hotel" data-component="graphic">
+				<h2 class="title">Price history for 2017</h2>
+					<a href="#" class="btn-back" id="">Back to description</a>
+				<ul class="grafico">
+						<li><span data-value="$146" style="height: 108.297px;"></span> Jan</li>
+						<li><span data-value="$182" style="height: 135px;"></span> Feb</li>
+						<li><span data-value="$130" style="height: 96.4286px;"></span> Mar</li>
+						<li><span data-value="$119" style="height: 88.2692px;"></span> Apr</li>
+						<li><span data-value="$171" style="height: 126.841px;"></span> May</li>
+						<li><span data-value="$154" style="height: 114.231px;"></span> Jun</li>
+						<li><span data-value="$163" style="height: 120.907px;"></span> Jul</li>
+				</ul>
+			</div>
+		</section>
+		<div class="guide-example">
+		<pre><code class="html">
+		{% filter escape %}
+		{% include "components/_hotel.njk" %}
+		{% endfilter %}
+		</code></pre>
+		</div>
+	</div>
+	<div class="guide-block">
+		<h2>#Footer</h2>
+		{% include "partials/_footer.njk" %}
+
+		<div class="guide-example">
+		<pre><code class="html">
+		{% filter escape %}
+		{% include "partials/_footer.njk" %}
+		{% endfilter %}
+		</code></pre>
+		</div>
+	</div>
+</div>
+
+{# Script Filter, originalmente ele é somente instanciado após o AJAX de hoteis #}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.1.0/nouislider.min.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+	let nonLinearSlider = document.querySelector('#nonlinear')
+	noUiSlider.create(nonLinearSlider, {
+		connect: true,
+		behaviour: 'tap',
+		start: [ 100, 600 ],
+		range: {
+			min: 100,
+			max: 600
+		}
+	});
+
+	let nodes = [
+		document.querySelector('#lower-value'), // 0
+		document.querySelector('#upper-value')// 1
+	];
+
+	nonLinearSlider.noUiSlider.on('update', function ( valuesRange, handle ) {
+		valuesRange[handle] = ~~valuesRange[handle]
+		nodes[handle].innerHTML = '$' + valuesRange[handle];
+	})
+</script>
 
 {% endblock %}

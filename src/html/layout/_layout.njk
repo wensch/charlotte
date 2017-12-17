@@ -9,8 +9,6 @@
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="icon" href="https://i.stack.imgur.com/Mmww2.png" />
 
-{% block scripts %}{% endblock %}
-
 {# Imports #}
 {% from "components/_button.njk" import button %}
 
@@ -22,5 +20,6 @@
   {% include "partials/_footer.njk" %}
 
   <script type="text/javascript" src="assets/js/main.js"></script>
+  {% block scripts %}{% endblock %}
 </body>
 </html>

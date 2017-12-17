@@ -44,7 +44,7 @@ const filter = (comp, node) => {
 			}
 		});
 
-		var nodes = [
+		let nodes = [
 			node.querySelector('#lower-value'), // 0
 			node.querySelector('#upper-value')// 1
 		];

@@ -1,0 +1,45 @@
+.guideline
+	color $title
+	padding 0 30px
+
+	h1
+		set-font($w-regular, $size-giant, $font-mont)
+		margin-top 0
+		text-align center
+
+	h2
+		set-font($w-regular, $size-large, $font-mont)
+		margin-bottom 20px
+		margin-top 0
+
+	.explicacao
+		display block
+		margin-bottom 30px
+
+	.guide-block
+		margin-bottom 40px
+
+	header
+		a
+			color $title
+
+	.banner-holder
+		color $white
+		margin-top 0
+
+	.hotel
+		margin-left 65px
+
+		&.-history
+			.history-hotel
+				transform translateX(0)
+
+			.grafico
+				&:after
+					left 0
+
+		@media screen and (max-width: $tablet)
+			margin-left 0
+
+	footer
+		margin-top 0

@@ -1,17 +1,7 @@
-<section class="checking" data-component="calendar">
+<section class="checking">
 	<h3 class="title">Select the dates to stay in Charlotte</h3>
 	<div class="check-days">
-		<div class="check">
-			<div class="in">
-				<strong>CHECK-IN</strong>
-				<span>Choose a date</span>
-			</div>
-			<div class="out">
-				<strong>CHECK-OUT</strong>
-				<span>Choose a date</span>
-			</div>
-			{{button('Seach hotels', class='btn-default -highlight search-hotels')}}
-		</div>
+		{% include "modules/_check.njk" %}
 		{% include "components/_calendar.njk" %}
 	</div>
 </section>
