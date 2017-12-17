@@ -12,9 +12,10 @@
 	&.-history
 		.info-hotel,
 		.price-hotel
-			right 0
+			bottom 0
 			opacity 0
 			position absolute
+			right 0
 			transform translateX(100%)
 			transition-duration 0.2s
 			transition-property opacity, visibility, transform
@@ -24,7 +25,6 @@
 			opacity 1
 			visibility visible
 			position relative
-			transform translateX(0)
 			transition-property opacity, visibility, transform
 			transition-duration 0.3s
 
@@ -149,10 +149,27 @@
 	@media screen and (max-width: $mobile-medium)
 		margin 0
 		margin-bottom 30px
+		padding 20px
+
+		.avaliation-hotel
+			margin-bottom 15px
+			margin-top 10px
+
+		.title
+			margin-bottom 15px
+
+		.info-hotel
+			margin-bottom 20px
+
+		.price-hotel
+			padding-top 15px
 
 		.btn-default
 			font-size $size-normal
-			// padding 10px 13px
+
+			&.-price
+				float right
+				margin-left 0
 
 		.history-hotel
 			.title

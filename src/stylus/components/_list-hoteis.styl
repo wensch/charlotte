@@ -41,6 +41,10 @@
 		transition-duration 0.3s
 		transition-property opacity, visibility
 		visibility visible
+		overflow hidden
+
+		.history-hotel
+			transform translateX(100%)
 
 		.hotel
 			.info-hotel,
@@ -48,6 +52,9 @@
 				visibility visible
 
 			&.-history
+				.history-hotel
+					transform translateX(0)
+
 				.info-hotel,
 				.price-hotel
 					visibility hidden
@@ -70,6 +77,7 @@
 
 	@media screen and (max-width: $mobile)
 		padding-top 200px
+		margin-top 80px
 
 	@media screen and (max-width: $mobile-medium)
 		padding 0

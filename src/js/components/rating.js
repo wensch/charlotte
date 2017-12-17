@@ -1,7 +1,6 @@
 import jails from 'jails-js'
 
 const rating = (comp, node) => {
-
 	let elm = comp.elm
 
 	comp.init(() => {

@@ -1,5 +1,3 @@
 node_modules
-dist/css
-dist/img
-dist/js
+dist/assets
 dist/*.html
