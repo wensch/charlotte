@@ -1,88 +1,84 @@
 import jails from 'jails-js'
 import noUiSlider from 'noUiSlider'
+import {filterHotels} from "../modules/filter-hotels";
 
 const filter = (comp, node) => {
 
 	comp.init(() => {
-		comp.subscribe('list-success', renderItems);
+		comp.subscribe('list-success', uiSlider);
+		comp.on('click', {'.rating-group .rating__label': setValue})
 	})
 
-	var priceFormat = wNumb({prefix: '$', decimals: 2})
-	var regularSlider = document.querySelector('.slider')
-	var price = []
-	// define items or get them via AJAX and then call the function renderItems()
-	var items = [
-			 {
-					 name: 'awesome GPU 3000',
-					 vendor: 'Misan\'s goods',
-					 build_year: 2014,
-					 price: 120.59,
-					 availability: true
-			 },
-			 {
-					 name: 'splendid GPU 5.3',
-					 vendor: 'Just stuff',
-					 build_year: 2015,
-					 price: 199.59,
-					 availability: true
-			 }
-	]
-	// Initial render with the items
-	// The function renderItems is defined later (which is no problem in javascript)
-	renderItems(items)
+	let stars = node.querySelectorAll('.rating-group .rating__label')
 
-	// slider setup
-	var slider = noUiSlider.create(regularSlider, {
-			start: [-Infinity, Infinity], // always start and end of the range
+	function removeClass() {
+		for (var i = 0; i < stars.length; i++) {
+			stars[i].classList.remove('-active')
+		}
+	}
+
+	function addClass(value) {
+		for (var i = 0; i < value; i++) {
+			stars[i].classList.add('-active')
+		}
+	}
+
+	function setValue(e){
+		let dataValue = e.target.dataset.value
+		let value = parseInt(dataValue)
+
+		removeClass()
+		addClass(value)
+		verifyRange(value)
+	}
+
+	function uiSlider() {
+		let nonLinearSlider = node.querySelector('#nonlinear')
+		noUiSlider.create(nonLinearSlider, {
 			connect: true,
-			tooltips: [wNumb({prefix: '$', decimals: 0}), wNumb({prefix: '$', decimals: 0})],
-			pips: {
-				mode: 'steps',
-				density: 5
-			},
-			range: this.getPriceRange(this.items)
-	})
+			behaviour: 'tap',
+			start: [ 100, 600 ],
+			range: {
+				min: 100,
+				max: 600
+			}
+		});
 
+		var nodes = [
+			node.querySelector('#lower-value'), // 0
+			node.querySelector('#upper-value')// 1
+		];
 
-	// on slider update, call filterItems and render them
-	slider.on('update', function(values){
-			let filteredItems = filterItems(items, values)
-			renderItems(filteredItems)
-	})
-
-	function getPriceRange(items) {
-			let min = items.reduce(function(acc, value){
-					return acc < value.price ? acc : value.price
-			})
-			let max = items.reduce(function(acc, value){
-					return acc > value.price ? acc : value.price
-			})
-			return {min: min, max: max}
+		nonLinearSlider.noUiSlider.on('update', function ( valuesRange, handle ) {
+			valuesRange[handle] = ~~valuesRange[handle]
+			nodes[handle].innerHTML = '$' + valuesRange[handle];
+			verifyStars(valuesRange)
+		})
 	}
 
-	function filterItems(items, price) {
-			return items.filter(item => {
-					return item.price >= price[0] && item.price <= price[1]
-			})
+	function verifyStars(vR){
+		let vS = node.querySelectorAll('.rating-group .-active').length
+		if (vS < 1) {
+			verifyRange()
+		} else {
+			filterHotels(vR, vS)
+		}
 	}
 
-	function renderItems(items) {
-			var counter = document.querySelector('.counter')
-			counter.innerHTML = `Your search matches <b>${items.length}</b> result${items.length == 1 ? '' : 's'}`
-			var table = document.querySelector('.results')
-					table.innerHTML = items.map(item=>{return `
-					<tr>
-							<td><span>Name</span>${item.name}</td>
-							<td><span>Vendor</span>${item.vendor}</td>
-							<td><span>Build year</span>${item.build_year}</td>
-							<td><span>Price</span>${priceFormat.to(item.price)}</td>
-							<td style="background-color: ${item.availability ? '#58D288' : '#C43828'}"><span hide-gt-sm>Available</span>${''+item.availability}</td>
-					</tr>
-					 `
-			}).join('')
-			// we need join(''), because we do an array to string conversion here.
-			// otherwise, the items would be connected with ","
+	function verifyRange(v) {
+		let lowerValue = node.querySelector('#lower-value').textContent.replace(/\$/g, '')
+		let upperValue = node.querySelector('#upper-value').textContent.replace(/\$/g, '')
+		let vMin = parseInt(lowerValue)
+		let vMax = parseInt(upperValue)
+		let vRange = [vMin, vMax]
+
+		if (v) {
+			filterHotels(vRange, v)
+		} else {
+			filterHotels(vRange)
+		}
 	}
 }
+
 jails('filter', filter)
 jails.start()

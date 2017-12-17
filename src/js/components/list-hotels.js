@@ -13,7 +13,6 @@ const listHotels = (comp, node) => {
 		let template = hotels.innerHTML
 
 		if (e.target.classList.contains('-active')) {
-			// changeDays()
 			listHotels.classList.add('-active')
 			let r = new XMLHttpRequest();
 			r.open("GET", "https://www.raphaelfabeni.com.br/rv/hotels.json", true);
@@ -32,19 +31,6 @@ const listHotels = (comp, node) => {
 			r.send();
 		}
 	}
-
-
-	// function changeDays() {
-	// 	let dayIn = node.querySelector('.title-list .date-in')
-	// 	let dayOut = node.querySelector('.title-list .date-out')
-  //
-	// 	// comp.subscribe('days')
-	// 	// dayIn.textContent = res[0]
-	// 	// dayOut.textContent = res[1]
-  //
-	// 	console.log('RES', res);
-  //
-	// }
 }
 jails('list-hotels', listHotels)
 jails.start()

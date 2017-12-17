@@ -1,22 +1,57 @@
-.rating
-	direction rtl
-	font-size 45px
-	margin 0 auto 1em
-	overflow hidden
-	width 276px
+.group
+	margin-top 10px
 
-	a
-		-moz-transition color .4s
-		-o-transition color .4s
-		-webkit-transition color .4s
-		color #aaa
-		float none
-		text-decoration none
-		transition color .4s
+	.rating-group
+		display inline-flex
 
-		&:hover,
-		&:hover ~ a,
-		&:focus,
-		&:focus ~ a
-			color orange
-			cursor pointer
+	.rating__icon
+		pointer-events none
+		font-style normal
+
+	.rating__input
+		display none
+
+	.rating__label
+		cursor pointer
+		display inline-flex
+		font-size 0
+		margin-right 6px
+
+		&:last-child
+			margin-right 0
+
+	.rating__icon--star
+		&:before //active
+			set-font($w-bold, $size-regular, $font-icon)
+			color $highlight
+			content '\e906'
+
+	.rating__icon--none
+		&:before
+			set-font($w-bold, $size-regular, $font-icon)
+			color $highlight
+			content '\e907'
+
+	.rating__input:checked ~ .rating__label .rating__icon--star
+		&:before
+			set-font($w-bold, $size-regular, $font-icon)
+			color $highlight
+			content '\e907'
+
+	.rating-group:hover .rating__label .rating__icon--star
+		&:before //active
+			set-font($w-bold, $size-regular, $font-icon)
+			color $highlight
+			content '\e906'
+
+	.rating__input:hover ~ .rating__label .rating__icon--star
+		&:before
+			set-font($w-bold, $size-regular, $font-icon)
+			color $highlight
+			content '\e907'
+
+	.rating-group:hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none
+		&:before
+			set-font($w-bold, $size-regular, $font-icon)
+			color $highlight
+			content '\e907'

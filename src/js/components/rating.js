@@ -13,7 +13,7 @@ const rating = (comp, node) => {
 		let count = 0
 		while (count < qtdStars) {
 			let div = document.createElement('div')
-      div.classList.add('star')
+			div.classList.add('star')
 			elm.appendChild(div)
 			count++
 		}

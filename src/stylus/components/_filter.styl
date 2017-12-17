@@ -8,6 +8,7 @@
 	span
 		set-font($w-regular, $size-little, $font-heb)
 		display block
+		margin-bottom 10px
 
 	.filter-price
 		display flex
@@ -15,12 +16,39 @@
 		justify-content space-between
 		margin-bottom 30px
 
-		input
-			margin 10px 0
+		.noUi-horizontal
+			display block
+			height auto
+			border 0
+			margin 6px 0
 			width 100%
+
+			.noUi-base
+				width calc(100% - 22px)
+
+			.noUi-handle
+				background-color $white
+				border solid 4px $highlight
+				border-radius 50%
+				height 25px
+				left 0
+				outline 0
+				width 25px
+
+				&:before,
+				&:after
+					display none
+
+			.noUi-connect
+				background transparent
+				border-bottom solid 5px $highlight
+				border-radius 0
+				box-shadow none
+				top 4px
 
 		span
 			set-font($w-regular, $size-short, $font-heb)
+			margin-top 20px
 
 			&.max
 				text-align right
@@ -35,46 +63,25 @@
 		border-top solid 1px $border
 		padding-top 15px
 
-		li
-			cursor pointer
-			display inline-flex
-			font-size 0
-			margin-right 3px
-			margin-top 15px
-
-			&:last-child
-				margin-right 0
-
-			&:before
-				set-font($w-bold, $size-regular, $font-icon)
-				color $highlight
-				content '\e907'
-
-			&.-active
-				&:before
-					set-font($w-bold, $size-regular, $font-icon)
-					color $highlight
-					content '\e906'
-
 	@media screen and (max-width: $tablet)
 		margin-bottom 70px
 
-	@media screen and (max-width: $mobile)
-		position absolute
-		top 0
-		left 50%
-		transform translateX(-50%)
-		width 100%
-
-		.filter-price,
-		.filter-stars
-			display inline-flex
-			height 100%
-			width 40%
-
-		.filter-stars
-			margin-left 30px
-			border-top 0
-			border-left solid 1px $border
-			padding-top 0
-			padding-left 20px
+	// @media screen and (max-width: $mobile)
+	// 	position absolute
+	// 	top 0
+	// 	left 50%
+	// 	transform translateX(-50%)
+	// 	width 100%
+  //
+	// 	.filter-price,
+	// 	.filter-stars
+	// 		display inline-flex
+	// 		height 100%
+	// 		width 40%
+  //
+	// 	.filter-stars
+	// 		margin-left 30px
+	// 		border-top 0
+	// 		border-left solid 1px $border
+	// 		padding-top 0
+	// 		padding-left 20px

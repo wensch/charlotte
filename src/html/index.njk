@@ -1,0 +1,18 @@
+{% extends "layout/_layout.njk" %}
+{% from "data/_index.njk" import data %}
+
+{% block main %}
+	{% include "components/_banner.njk" %}
+	<div data-component="list-hotels">
+		{% include "components/_checking.njk" %}
+		<section class="list-hotels">
+			<h2 class="title-list">Best choices between <span class="date-in">{date start}</span> and <span class="date-out">{date end}</span></h2>
+			<div class="col-filter">
+				{% include "components/_filter.njk" %}
+			</div>
+			<div class="col-hotels">
+				{% include "components/_hotel.njk" %}
+			</div>
+		</section>
+	</div>
+{% endblock %}

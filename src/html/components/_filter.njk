@@ -1,47 +1,34 @@
-<div class="filter">
+<div class="filter" data-component="filter">
 	<h2 class="title">Filter</h2>
 	<span class="price-range">Price Range</span>
 	<div class="filter-price">
-		<input type="range" name="" value="">
-		<span class="min">Min <strong>$100</strong></span>
-		<span class="max">Max <strong>$600</strong></span>
+		<div id="nonlinear" class="noUi-target noUi-ltr noUi-horizontal"></div>
+		<span class="min">Min <strong id="lower-value">$100</strong></span>
+		<span class="max">Max <strong id="upper-value">$600</strong></span>
 	</div>
 	<div class="filter-stars">
 		<span>Stars</span>
 
-		<div class="rating">
-			<a href="#5" title="Give 5 stars">★</a>
-			<a href="#4" title="Give 4 stars">★</a>
-			<a href="#3" title="Give 3 stars">★</a>
-			<a href="#2" title="Give 2 stars">★</a>
-			<a href="#1" title="Give 1 star">★</a>
-		</div>
+		<div class="group">
+			<div class="rating-group">
+				<label for="rating-0"></label>
+				<input class="rating__input" name="rating" id="rating-0" value="0" type="radio" checked>
 
-		<ul>
-			<li class="-active">1</li>
-			<li class="-active">2</li>
-			<li>3</li>
-			<li>4</li>
-			<li>5</li>
-		</ul>
+				<label class="rating__label" for="rating-1" data-value="1"><i class="rating__icon rating__icon--star"></i></label>
+				<input class="rating__input" name="rating" id="rating-1" value="1" type="radio">
+
+				<label class="rating__label" for="rating-2" data-value="2"><i class="rating__icon rating__icon--star"></i></label>
+				<input class="rating__input" name="rating" id="rating-2" value="2" type="radio">
+
+				<label class="rating__label" for="rating-3" data-value="3"><i class="rating__icon rating__icon--star"></i></label>
+				<input class="rating__input" name="rating" id="rating-3" value="3" type="radio">
+
+				<label class="rating__label" for="rating-4" data-value="4"><i class="rating__icon rating__icon--star"></i></label>
+				<input class="rating__input" name="rating" id="rating-4" value="4" type="radio">
+
+				<label class="rating__label" for="rating-5" data-value="5"><i class="rating__icon rating__icon--star"></i></label>
+				<input class="rating__input" name="rating" id="rating-5" value="5" type="radio">
+			</div>
+		</div>
 	</div>
 </div>
-
-<div style="margin: 2em" class="regular-slider"></div>
-
-<h2>Price</h2>
-<div class="slider"></div>
-<span class="counter">Your search matches <b>0</b> results</span>
-<table>
-    <thead>
-        <tr>
-            <th>name</th>
-            <th>vendor</th>
-            <th>build year</th>
-            <th>price</th>
-            <th>availability</th>
-        </tr>
-    </thead>
-    <tbody class="results">
-    </tbody>
-</table>

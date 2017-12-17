@@ -1,5 +1,4 @@
 import jails from 'jails-js'
-import mustache from 'mustache'
 
 const graphic = (comp, node) => {
 
@@ -8,20 +7,16 @@ const graphic = (comp, node) => {
 	})
 
 	function heightGraphic(e) {
-		let arr = []
-		let itens = node.querySelectorAll('li > span')
+		let itens = node.querySelectorAll("span")
+		let value = [].slice.call(node.querySelectorAll("span")).map(function(item){
+			return item.dataset.value
+		});
+		let heightMax = 135
+		let maxValue = Math.max.apply(null, value)
 
 		for (var i = 0; i < itens.length; i++) {
 			let value = itens[i].dataset.value
-			let number = parseInt(value)
-			arr.push(number)
-
-			let maxValue = Math.max.apply(null, arr)
-			console.log('maxValue', maxValue);
-
-			let heightMax = 135
-			let ratingMax = 438
-			let heightBarra = (number * heightMax) / ratingMax
+			let heightBarra = (value * heightMax) / maxValue
 			itens[i].style.height = heightBarra + 'px'
 
 		}

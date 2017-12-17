@@ -23,6 +23,9 @@
 			transition-property opacity, visibility
 			transition-duration 0.3s
 
+	&.-close
+		display none
+
 	.info-hotel,
 	.price-hotel
 		opacity 1
@@ -96,13 +99,6 @@
 		.img-hotel
 			margin-left 0
 
-	@media screen and (max-width: $tablet-medium)
-		padding 40px 25px
-		margin 0 15px
-
-		.img-hotel
-			margin-right 30px
-
 		.btn-default
 			padding 8px 20px
 
@@ -111,6 +107,13 @@
 
 		.price-hotel
 			padding-left 20px
+
+	@media screen and (max-width: $tablet-medium)
+		padding 40px 25px
+		margin 0 15px
+
+		.img-hotel
+			margin-right 30px
 
 	@media screen and (max-width: $mobile)
 		flex-flow wrap
