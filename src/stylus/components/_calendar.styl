@@ -3,8 +3,8 @@
 
 .flatpickr-calendar
 	set-font($w-regular, $size-tiny, $font-heb)
-	border-top solid 2px $border
 	border-radius 0
+	border-top solid 2px $border
 	box-shadow none
 	padding-top 15px
 
@@ -43,20 +43,37 @@
 	.flatpickr-prev-month,
 	.flatpickr-next-month
 		height 15px
-		padding-top 0
 		padding-bottom 5px
+		padding-top 0
 		top 4px
 
+		&:before
+			set-font($w-bold, $size-little, $font-icon)
+			color $highlight
+			display block
+			margin-top -2px
+
+	.flatpickr-prev-month
+		&:before
+			content '\e900'
+
+	.flatpickr-next-month
+		&:before
+			content '\e901'
+
+		> svg
+			display none
+
 	.flatpickr-weekdays
-		height 12px
-		padding-bottom 10px
 		border-bottom solid 2px $border
+		height 12px
 		margin-bottom 8px
+		padding-bottom 10px
 
 	.flatpickr-weekday
+		color $text
 		font-size $size-tiny
 		font-weight $w-bold
-		color $text
 
 	.flatpickr-day
 		margin-bottom 10px
@@ -68,9 +85,9 @@
 		&.selected,
 		&.inRange,
 		&:hover
-			color $white
 			background $price
 			border-color $price
+			color $white
 
 		&.inRange
 			box-shadow -5px 0 0 $price, 5px 0 0 $price
@@ -82,11 +99,11 @@
 				left -6px
 
 		&.endRange
-			position relative
-			border-radius 50%
 			background-color $white
-			color $price
+			border-radius 50%
 			box-shadow -5px 0 0 #79bd1a, 0 0 0 #79bd1a
+			color $price
+			position relative
 
 			&:before
 				background-color $price
@@ -97,15 +114,6 @@
 				top -1px
 				width 50%
 				z-index -1
-
-			// &.startRange,
-			// &.inRange
-			// 	background-color $price
-			// 	color $white
-			// 	box-shadow -5px 0 0 #79bd1a, 5px 0 0 #79bd1a
-      //
-			// 	&:before
-			// 		display none
 
 @media screen and (max-width: $mobile)
 	.flatpickr-calendar.inline

@@ -20,18 +20,18 @@
 		width 100%
 
 		&:after
-			content ''
 			border-bottom solid 2px $border
+			bottom 26px
+			content ''
 			position absolute
 			width 100%
-			bottom 26px
 
 		li
 			set-font($w-regular, $size-little, $font-heb)
 			color $text
 			list-style none
-			width 27px
 			position relative
+			width 27px
 
 			&:hover,
 			&.-active
@@ -44,18 +44,18 @@
 						border-radius 3px
 						color $white
 						content attr(data-value)
+						left -17px
 						letter-spacing 1.7px
 						padding 2px 10px
 						position relative
 						top -32px
-						left -17px
 
 					&:after
-						display inline-block
 						border-left 5px solid transparent
 						border-right 5px solid transparent
 						border-top 5px solid #484848
 						content ''
+						display inline-block
 						left 8px
 						position relative
 						top -41px
@@ -67,7 +67,7 @@
 			display block
 			height 150px
 			margin-bottom 10px
-			opacity 0.6
+			opacity 0.6s
 
 	@media screen and (max-width: $mobile-medium)
 		.btn-back

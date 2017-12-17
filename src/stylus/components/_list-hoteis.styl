@@ -1,10 +1,10 @@
 .title-list
 	set-font($w-regular, $size-regular, $font-mont)
 	color $black
-	text-align center
 	margin-bottom 70px
 	margin-top 0
 	padding 0 20px
+	text-align center
 	width 100%
 
 	span
@@ -36,12 +36,12 @@
 
 	&.-active
 		opacity 1
+		overflow hidden
 		position static
 		transition-delay 0.3s
 		transition-duration 0.3s
 		transition-property opacity, visibility
 		visibility visible
-		overflow hidden
 
 		.history-hotel
 			transform translateX(100%)

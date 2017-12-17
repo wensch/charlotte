@@ -23,10 +23,10 @@
 
 		.history-hotel
 			opacity 1
-			visibility visible
 			position relative
-			transition-property opacity, visibility, transform
 			transition-duration 0.3s
+			transition-property opacity, visibility, transform
+			visibility visible
 
 	&.-close
 		display none
@@ -36,8 +36,8 @@
 		opacity 1
 		position relative
 		transform translateX(0)
-		transition-property opacity, visibility
 		transition-duration 0.2s
+		transition-property opacity, visibility, transform
 
 	.img-hotel
 		border-radius 4px
@@ -86,11 +86,11 @@
 			margin-left 20px
 
 	.price-hotel
-		border-left solid 1px $text
-		padding-left 36px
-		display flex
 		align-items center
+		border-left solid 1px $text
+		display flex
 		justify-content center
+		padding-left 36px
 
 		strong
 			set-font($w-bold, $size-medium, $font-mont)
@@ -101,8 +101,8 @@
 			text-align right
 
 	@media screen and (max-width: $tablet)
-		padding 40px 30px
 		margin 0 20px 30px
+		padding 40px 30px
 
 		.img-hotel
 			margin-left 0
@@ -117,8 +117,8 @@
 			padding-left 20px
 
 	@media screen and (max-width: $tablet-medium)
-		padding 40px 25px
 		margin 0 15px 30px
+		padding 40px 25px
 
 		.img-hotel
 			margin-right 30px
