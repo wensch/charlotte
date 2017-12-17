@@ -6,21 +6,26 @@
 	display flex
 	margin-bottom 30px
 	padding 50px
+	position relative
+	z-index 1
 
 	&.-history
 		.info-hotel,
 		.price-hotel
+			right 0
 			opacity 0
-			visibility hidden
 			position absolute
-			transition-property opacity, visibility
-			transition-duration 0.3s
+			transform translateX(100%)
+			transition-duration 0.2s
+			transition-property opacity, visibility, transform
+			visibility hidden
 
 		.history-hotel
 			opacity 1
 			visibility visible
-			position static
-			transition-property opacity, visibility
+			position relative
+			transform translateX(0)
+			transition-property opacity, visibility, transform
 			transition-duration 0.3s
 
 	&.-close
@@ -29,14 +34,17 @@
 	.info-hotel,
 	.price-hotel
 		opacity 1
-		position static
+		position relative
+		transform translateX(0)
 		transition-property opacity, visibility
-		transition-duration 0.3s
+		transition-duration 0.2s
 
 	.img-hotel
 		border-radius 4px
 		margin-left -110px
 		margin-right 40px
+		position relative
+		z-index 1
 
 	.info-hotel
 		margin-right 20px
@@ -110,7 +118,7 @@
 
 	@media screen and (max-width: $tablet-medium)
 		padding 40px 25px
-		margin 0 15px
+		margin 0 15px 30px
 
 		.img-hotel
 			margin-right 30px

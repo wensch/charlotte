@@ -9,13 +9,13 @@ const graphic = (comp, node) => {
 	function heightGraphic(e) {
 		let itens = node.querySelectorAll("span")
 		let value = [].slice.call(node.querySelectorAll("span")).map(function(item){
-			return item.dataset.value
+			return parseInt(item.dataset.value.replace(/\$/g, ''))
 		});
 		let heightMax = 135
 		let maxValue = Math.max.apply(null, value)
 
 		for (var i = 0; i < itens.length; i++) {
-			let value = itens[i].dataset.value
+			let value = parseInt(itens[i].dataset.value.replace(/\$/g, ''))
 			let heightBarra = (value * heightMax) / maxValue
 			itens[i].style.height = heightBarra + 'px'
 

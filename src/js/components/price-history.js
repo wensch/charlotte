@@ -5,11 +5,14 @@ const priceHistory = (comp, node) => {
 	comp.init(() => {
 		comp.on('click', {'.-price': openHistory})
 		comp.on('click', {'.btn-back': closeHistory})
-		comp.subscribe('list-success', start);
+		comp.subscribe('list-success', formatPrice);
 	})
 
-	function start() {
-		jails.start()
+	function formatPrice() {
+		let price = node.querySelector('.price')
+		let priceNumb = parseInt(price.textContent.replace(/\$/g, ''))
+
+		price.innerHTML = '$' + priceNumb.toFixed(0)
 	}
 
 	function openHistory() {

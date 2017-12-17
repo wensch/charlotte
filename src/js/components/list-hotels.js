@@ -5,6 +5,7 @@ const listHotels = (comp, node) => {
 
 	comp.init(() => {
 		comp.on('click', {'.search-hotels': listHotels})
+		comp.subscribe('days', ({res})=> titleDate(res));
 	})
 
 	function listHotels(e) {
@@ -29,6 +30,16 @@ const listHotels = (comp, node) => {
 				comp.publish('list-success')
 			};
 			r.send();
+		}
+	}
+
+	function titleDate(res) {
+		let dayIn = node.querySelector('.title-list .date-in')
+		let dayOut = node.querySelector('.title-list .date-out')
+		dayIn.textContent = res[0]
+
+		if (res.length > 1) {
+			dayOut.textContent = res[1]
 		}
 	}
 }
