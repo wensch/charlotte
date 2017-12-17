@@ -26,4 +26,6 @@ Build de produção:
 
 
 ## Perfomace ##
+> Estava preocupado com a perfomace do projeto, estudei um pouco e consegui otimiza-lo, como mostra o resultado no PageSpeed
+
 [PageSpeed](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fcharlotte-rv.surge.sh%2F&tab=desktop)
