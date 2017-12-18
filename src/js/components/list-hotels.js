@@ -12,9 +12,15 @@ const listHotels = (comp, node) => {
 		let listHotels = node.querySelector('.list-hotels')
 		let hotels = node.querySelector('.col-hotels')
 		let template = hotels.innerHTML
+		let titleList = node.querySelector('.title-list')
+		let load = node.querySelector('.loading')
 
 		if (e.target.classList.contains('-active')) {
+			load.classList.add('-active')
 			listHotels.classList.add('-active')
+
+			titleList.scrollIntoView({block: "start", behavior: "smooth"});
+
 			let r = new XMLHttpRequest();
 			r.open("GET", "https://www.raphaelfabeni.com.br/rv/hotels.json", true);
 			r.onreadystatechange = function () {
@@ -28,6 +34,8 @@ const listHotels = (comp, node) => {
 
 				jails.start()
 				comp.publish('list-success')
+
+				load.classList.remove('-active')
 			};
 			r.send();
 		}
