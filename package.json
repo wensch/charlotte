@@ -16,8 +16,7 @@
     "watch:html": "nunjucks **/*.njk -p src/html -w -o dist ",
     "watch:css": "npm run mk-css && stylus -u autoprefixer-stylus -w -c src/stylus/main.styl -o dist/assets/css/main.css",
     "watch:js": "npm run mk-js && browserify src/js/main.js -o -t babelify && npm run js-watch",
-    "js-watch": "watchify src/js/main.js -t babelify -o dist/assets/js/main.js | minify dist/assets/js/main.js -o dist/assets/js/main.js",
-    "watch:minifyJs": "minify dist/assets/js/main.js -o dist/assets/js/main.js",
+    "js-watch": "watchify src/js/main.js -t babelify -o dist/assets/js/main.js | uglifyjs dist/assets/js/main.js -c -m -o dist/assets/js/main.js",
     "watch:images": "npm run mk-img && imagemin src/img/* -o dist/assets/img",
     "watch:server": "browser-sync start --server 'dist' --files 'dist/assets/css/*.css, dist/*.html, dist/assets/js/*.js' reload --port 1144",
     "build": " echo $npm_package_config_domain > dist/CNAME && surge -p dist"
